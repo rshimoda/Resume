@@ -33,9 +33,7 @@
             text-align: center;
             overflow: hidden;
         }
-        #entryVideo {
-            -webkit-transition: all 0.7s ease-out;
-        }
+
     </style>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -45,13 +43,17 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            //$('#layer').fadeOut(1).delay(1600).fadeIn(1000);
+            $('#layer').fadeOut(1).delay(1600).fadeIn(1000);
+            $('#educationLayer').fadeOut(1).delay(1600).fadeIn(1000);
 
             $('#fullpage').fullpage({
                 'css3': true,
                 'navigation': true,
                 'slidesNavigation': true,
                 'navigationPosition': 'right',
+                'scrollOverflow': true,
+                'autoScrolling': true,
+                'animateAnchor': true,
                 'afterLoad': function(anchorLink, index) {
                     if (index == 2) {
                         //$('#someclass, #anotherOne).addClass('active');
@@ -71,20 +73,47 @@
 <body>
     <div id="fullpage">
         <div class="section" id="section0">
-            <video autoplay loop muted id="entryVideo" tabindex="-1" style="width: 100%; height: 100%; position: absolute; right: 0; top: 0; object-fit: cover;  background-image: none">
-                <source src="http://images.apple.com/media/us/music/2015/758e7234_576d_4c94_8dc0_54994631d0fb/overview/connect.mp4" />
+            <video autoplay muted id="entryVideo" tabindex="-1" style="z-index: -1; min-width: 100%; min-height: 100%; width: auto; height: auto; position: absolute; right: 0; top: 0; object-fit: cover;  background-image: none;" >
+                <source src="http://images.apple.com/media/us/music/2015/758e7234_576d_4c94_8dc0_54994631d0fb/overview/hero.mp4" />
             </video>
             <div id="layer" style="z-index: 2">
                 <h1 id="hello" style="color: aliceblue">Hello</h1>
             </div>
         </div>
-        <div class="section" id="section1" style="background-color: gray">
-            <div class="slide" id="slide0"><h1>Tab One</h1></div>
-            <div class="slide" id="slide1"><h1>Two</h1></div>
-            <div class="slide" id="slide2"><h1>Three</h1></div>
+        <div class="section" id="section1">
+            <video autoplay loop muted id="educationVideo" tabindex="-1" style="z-index: -1; min-width: 100%; min-height: 100%; width: 100%; height: auto; position: fixed; right: 0; top: 100%; object-fit: cover;  background-image: none;">
+                <source src="http://images.apple.com/media/us/music/2015/758e7234_576d_4c94_8dc0_54994631d0fb/overview/connect.mp4" />
+            </video>
+            <div id="educationLayer" style="z-index: 2;">
+                <h1 style="color: aliceblue">Education</h1>
+            </div>
         </div>
         <div class="section" id="section2">
-            <h1>Thanks for Watching!</h1>
+            <h1>Skills</h1>
+        </div>
+        <div class="section" id="section3">
+            <h1>Projects</h1>
+            <div class="slide" id="slide1">
+                <h1>HRCRM</h1>
+            </div>
+            <div class="slide" id="slide2">
+                <h1>HRCRM-mobile</h1>
+            </div>
+            <div class="slide" id="slide3">
+                <h1>Hamming+</h1>
+            </div>
+        </div>
+        <div class="section" id="section4">
+            <h1>Awards</h1>
+        </div>
+        <div class="section" id="section5">
+            <h1>Hobbies</h1>
+            <div class="slide" id="slide4"><h2>Music</h2></div>
+            <div class="slide" id="slide5"><h2>Photo</h2></div>
+            <div class="slide" id="slide6"><h2>Books</h2></div>
+        </div>
+        <div class="section" id="footer">
+
         </div>
     </div>
 </body>
