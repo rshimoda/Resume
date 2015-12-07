@@ -44,23 +44,21 @@
     <script type="text/javascript" src="script/jquery.fullPage.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#hello').fadeOut(1).delay(1600).fadeIn(1000).delay(1500).fadeOut(700);
+            $('#hello').fadeOut(1).delay(800).fadeIn(1000).delay(1500).fadeOut(700);
             $('#name').fadeOut(1).delay(4800).fadeIn(1000);
 
             function blurElement(element, size) {
                 var filterVal = 'blur(' + size + 'px)';
                 $(element)
-                        .delay(700)
                         .css('filter', filterVal)
                         .css('webkitFilter', filterVal)
                         .css('mozFilter', filterVal)
                         .css('oFilter', filterVal)
                         .css('msFilter', filterVal)
-                        .css('transition', 'all 0.5s ease-out')
-                        .css('-webkit-transition', 'all 0.5s ease-out')
-                        .css('-moz-transition', 'all 0.5s ease-out')
-                        .css('-o-transition', 'all 0.5s ease-out');
-
+                        .css('transition', 'all 1.0s ease-out')
+                        .css('-webkit-transition', 'all 1.0s ease-out')
+                        .css('-moz-transition', 'all 1.0s ease-out')
+                        .css('-o-transition', 'all 1.0s ease-out');
             }
 
             $('#fullpage').fullpage({
@@ -73,7 +71,7 @@
                 'animateAnchor': true,
                 'afterLoad': function(anchorLink, index) {
                     if (index == 2) {
-//                        $('#educationVideo').css({"-webkit-filter": "blur(64px)"}); // работает
+//                        $('#educationVideo').css({"-webkit-filter": "blur(64px)"}); //// работает
                         $("#educationLayer").addClass('active').fadeIn(1000);
                         blurElement("#educationVideo", 64);
                     }
@@ -101,10 +99,10 @@
             </div>
         </div>
         <div class="section" id="section1">
-            <video autoplay loop muted id="educationVideo" tabindex="-1" style="z-index: -1; min-width: 100%; min-height: 100%; width: 100%; height: auto; position: fixed; right: 0; top: 100%; object-fit: cover;  background-image: none;">
+            <video autoplay loop muted id="educationVideo" tabindex="0" style="z-index: -1; min-width: 100%; min-height: 100%; width: 100%; height: auto; position: fixed; right: 0; top: 100%; object-fit: cover;  background-image: none;">
                 <source src="http://images.apple.com/media/us/music/2015/758e7234_576d_4c94_8dc0_54994631d0fb/overview/connect.mp4" />
             </video>
-            <div id="educationLayer" style="z-index: 2; invisible: true;">
+            <div id="educationLayer" style="z-index: 2;">
                 <h1 style="color: aliceblue">Education</h1>
             </div>
         </div>
