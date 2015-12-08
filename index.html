@@ -13,6 +13,7 @@
     <style>
         body {
             font-family: "Myriad Pro", "Helvetica Neue", Helvetica ,"PT Sans", "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
+            background-color: whitesmoke;
         }
         h1 {
             font-size: 5em;
@@ -44,8 +45,9 @@
     <script type="text/javascript" src="script/jquery.fullPage.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#hello').fadeOut(1).delay(800).fadeIn(1000).delay(1500).fadeOut(700);
-            $('#name').fadeOut(1).delay(4800).fadeIn(1000);
+//            $('#hello').fadeOut(1).delay(800).fadeIn(1000).delay(1500).fadeOut(700);
+//            $('#name').fadeOut(1).delay(4800).fadeIn(1000);
+            $('#educationLayer').fadeOut(1);
 
             function blurElement(element, size) {
                 var filterVal = 'blur(' + size + 'px)';
@@ -61,6 +63,8 @@
                         .css('-o-transition', 'all 1.0s ease-out');
             }
 
+            var counter = 0;
+
             $('#fullpage').fullpage({
                 'css3': true,
                 'navigation': true,
@@ -68,11 +72,35 @@
                 'navigationPosition': 'right',
                 'scrollOverflow': true,
                 'autoScrolling': true,
+                continuousVertical: true,
                 'animateAnchor': true,
                 'afterLoad': function(anchorLink, index) {
+                    if (index == 1)  {
+                        if (counter == 0) {
+                            $('#hello').fadeOut(1).delay(800).fadeIn(1000).delay(1500).fadeOut(700);
+                            $('#name').fadeOut(1).delay(4800).fadeIn(1000);
+                            $('#thanks').fadeOut(1);
+                            counter = 1;
+                        } else {
+                            $('#name').fadeOut(1);
+                            $('#thanks').fadeIn(1000);
+                        }
+                    }
                     if (index == 2) {
 //                        $('#educationVideo').css({"-webkit-filter": "blur(64px)"}); //// работает
-                        $("#educationLayer").addClass('active').fadeIn(1000);
+                        $("#educationLayer").addClass('active').delay(1000).fadeIn(1000);
+                        $("#educationVideo").delay(1000);
+//                        $("#educationVideo").delay(1000).animate({ //// не работает
+//                            "filter": "blur(64px)",
+//                            "webkitFilter": "blur(64px)",
+//                            "mozFilter": "blur(64px)",
+//                            "oFilter": "blur(64px)",
+//                            "msFilter": "blur(64px)",
+//                            "transition": "all 0.5s ease-out",
+//                            "-webkit-transition": "all 0.5s ease-out",
+//                            "-moz-transition": "all 0.5s ease-out",
+//                            "-o-transition": "all 0.5s ease-out"
+//                        }, "fast");
                         blurElement("#educationVideo", 64);
                     }
                 },
@@ -94,8 +122,9 @@
                 <source src="http://images.apple.com/media/us/music/2015/758e7234_576d_4c94_8dc0_54994631d0fb/overview/hero.mp4" />
             </video>
             <div id="layer" style="z-index: 2">
-                <h1 id="hello" style="color: aliceblue;">Hello</h1>
-                <h1 id="name" style="color: aliceblue;">My name is Segey</h1>
+                <h1 id="hello" style="color: whitesmoke;">Hello</h1>
+                <h1 id="name" style="color: whitesmoke;">My name is Segey</h1>
+                <h1 id="thanks" style="color: whitesmoke;">Thanks for watching!</h1>
             </div>
         </div>
         <div class="section" id="section1">
